@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texture Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <!-- Navigation Section -->
+    <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+      <a href="site.html" class="nav-button" target="">Home</a>
+      <a href="https://github.com/AkaGiant" class="nav-button" target="_blank">My Github</a>
+      <a href="https://discord.gg/gq4gHqXjFv" class="nav-button" target="_blank">My Discord</a>
+    </div>
+    <div class="main-content">
+      <h1>Texture Gallery</h1>
+      <!-- Filter Buttons -->
+      <div class="filter-buttons">
+        <button class="filter-button" onclick="filterTextures('all')">All</button>
+        <button class="filter-button" onclick="filterTextures('yellow')">Yellow</button>
+        <button class="filter-button" onclick="filterTextures('1')">1</button>
+        <button class="filter-button" onclick="filterTextures('metal')">Metal</button>
+        <button class="filter-button" onclick="filterTextures('wood')">Wood</button>
+      </div>
+      <!-- Gallery Section -->
+      <div class="gallery">
+        <div class="texture" data-tags="1, yellow" onclick="openModal('images/AirJordans_1.png', 'Yellow AR15', 'This is a yellow AR15 texture designed for bright aesthetics.')">
+          <img src="images/AirJordans_1.png" alt="Yellow AR15">
+          <p>Yellow AR15</p>
+        </div>
+        <div class="texture" data-tags="AR15,silver" onclick="openModal('images/AK101_Gold.png', 'Metal Texture', 'A metallic texture with a silver sheen.')">
+          <img src="images/AK101_Gold.png" alt="Metal Texture">
+          <p>Metal Texture</p>
+        </div>
+        <div class="texture" data-tags="metal,AR15" onclick="openModal('images/AirJordans_1.png', 'Yellow AR15', 'This is a yellow AR15 texture designed for bright aesthetics.')">
+          <img src="images/AirJordans_1.png" alt="Yellow AR15">
+          <p>Yellow AR15</p>
+        </div>
+        <div class="texture" data-tags="yellow,AR15" onclick="openModal('images/AirJordans_1.png', 'Yellow AR15', 'This is a yellow AR15 texture designed for bright aesthetics.')">
+          <img src="images/AirJordans_1.png" alt="Yellow AR15">
+          <p>Yellow AR15</p>
+        </div>
+        <div class="texture" data-tags="metal,silver" onclick="openModal('images/metal_texture.png', 'Metal Texture', 'A metallic texture with a silver sheen.')">
+          <img src="images/metal_texture.png" alt="Metal Texture">
+          <p>Metal Texture</p>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Structure -->
+    <div id="myModal" class="modal">
+      <div class="modal-content-wrapper">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImage" class="modal-content" alt="Modal Image">
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 AkaGiant. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
