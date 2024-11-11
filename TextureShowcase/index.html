@@ -3,60 +3,64 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Texture Gallery</title>
+    <title>Texture Gallery | WORK IN PROGRESS</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <!-- Navigation Section -->
     <!-- Navigation Buttons -->
     <div class="nav-buttons">
-      <a href="site.html" class="nav-button" target="">Home</a>
+      <a href="../index.html" class="nav-button" target="">Home</a>
       <a href="https://github.com/AkaGiant" class="nav-button" target="_blank">My Github</a>
       <a href="https://discord.gg/gq4gHqXjFv" class="nav-button" target="_blank">My Discord</a>
     </div>
     <div class="main-content">
-      <h1>Texture Gallery</h1>
+      <h1>Texture Gallery | WORK IN PROGRESS</h1>
       <!-- Filter Buttons -->
       <div class="filter-buttons">
         <button class="filter-button" onclick="filterTextures('all')">All</button>
-        <button class="filter-button" onclick="filterTextures('yellow')">Yellow</button>
-        <button class="filter-button" onclick="filterTextures('AR15')">AR15</button>
-        <button class="filter-button" onclick="filterTextures('metal')">Metal</button>
-        <button class="filter-button" onclick="filterTextures('wood')">Wood</button>
+        <button class="filter-button" onclick="filterTextures('v')">Vanilla</button>
+        <button class="filter-button" onclick="filterTextures('vc')">Vanilla Clothing</button>
+        <button class="filter-button" onclick="filterTextures('vw')">Vanilla Weapons</button>
+        <button class="filter-button" onclick="filterTextures('m')">Modded</button>
+        <button class="filter-button" onclick="filterTextures('mc')">Modded Clothing</button>
+        <button class="filter-button" onclick="filterTextures('mw')">Modded Weapons</button>
+        <button class="filter-button" onclick="filterTextures('misc')">Misc</button>
       </div>
+    
+
       <!-- Gallery Section -->
+      <!-- Vanilla Clothing -->
       <div class="gallery">
-        <div class="texture" data-tags="AR15, yellow" onclick="openModal('images/AirJordans_1.png', 'Yellow AR15', 'This is a yellow AR15 texture designed for bright aesthetics.')">
-          <img src="images/AirJordans_1.png" alt="Yellow AR15">
-          <p>Yellow AR15</p>
-        </div>
-        <div class="texture" data-tags="AR15,silver" onclick="openModal('images/AK101_Gold.png', 'Metal Texture', 'A metallic texture with a silver sheen.')">
-          <img src="images/AK101_Gold.png" alt="Metal Texture">
-          <p>Metal Texture</p>
-        </div>
-        <div class="texture" data-tags="metal,AR15" onclick="openModal('images/AirJordans_1.png', 'Yellow AR15', 'This is a yellow AR15 texture designed for bright aesthetics.')">
-          <img src="images/AirJordans_1.png" alt="Yellow AR15">
-          <p>Yellow AR15</p>
-        </div>
-        <div class="texture" data-tags="yellow,AR15" onclick="openModal('images/AirJordans_1.png', 'Yellow AR15', 'This is a yellow AR15 texture designed for bright aesthetics.')">
-          <img src="images/AirJordans_1.png" alt="Yellow AR15">
-          <p>Yellow AR15</p>
-        </div>
-        <div class="texture" data-tags="metal,silver" onclick="openModal('images/metal_texture.png', 'Metal Texture', 'A metallic texture with a silver sheen.')">
-          <img src="images/metal_texture.png" alt="Metal Texture">
-          <p>Metal Texture</p>
-        </div>
+        <div class="texture" data-tags="example1">
+          <img src="images/Clothing/Vanilla/Cute_Foxes_Set_Front.png" alt="Front Image 1" 
+            onclick="openModal(['images/Clothing/Vanilla/Cute_Foxes_Set_Front.png', 'images/Clothing/Vanilla/M65_Cute_Foxes_Back.png'], 'Title 1', 'Description for Image 1')">
+      </div>
+      
+      <div class="texture" data-tags="example2">
+          <img src="images/Clothing/Vanilla/Cute_Foxes_Set_Front.png" alt="Single Image 2" 
+            onclick="openModal(['images/Clothing/Vanilla/Cute_Foxes_Set_Front.png'], 'Title 2', 'Description for Image 2')">
       </div>
     </div>
-    <!-- Modal Structure -->
+    </div>
+
     <div id="myModal" class="modal">
       <div class="modal-content-wrapper">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img id="modalImage" class="modal-content" alt="Modal Image">
-        <h2 id="modalTitle"></h2>
-        <p id="modalDescription"></p>
+          <!-- Removed the close button -->
+          <img id="modalImage" class="modal-image" src="" alt="">
+          <div class="modal-controls">
+              <button class="prev-button" onclick="prevSlide()">&#10094;</button>
+              <span id="imageCounter" class="image-counter"></span>
+              <button class="next-button" onclick="nextSlide()">&#10095;</button>
+          </div>
+          <h2 id="modalTitle"></h2>
+          <p id="modalDescription"></p>
       </div>
-    </div>
+  </div>
+  
+  
+  
+  
     <!-- Footer -->
     <footer>
       <p>&copy; 2024 AkaGiant. All rights reserved.</p>

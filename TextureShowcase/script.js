@@ -45,20 +45,68 @@ function filterTextures(tag) {
     });
 }
 
-function openModal(imageSrc, title, description) {
-    const modal = document.getElementById('myModal');
-    document.getElementById('modalImage').src = imageSrc;
-    document.getElementById('modalTitle').innerText = title;
-    document.getElementById('modalDescription').innerText = description;
-    modal.style.display = 'flex';
+let currentSlide = 0;
+let slideImages = [];
+
+function openModal(images, title, description) {
+    slideImages = images;
+    currentSlide = 0;
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalDescription").innerText = description;
+
+    // Load the first image in the modal
+    document.getElementById("modalImage").src = slideImages[currentSlide];
+    document.getElementById("myModal").style.display = "flex";
+
+    // Hide the footer when modal opens
+    document.querySelector("footer").style.display = "none";
+
+    // Update slide controls visibility and current image counter
+    updateSlideControls();
 }
 
 function closeModal() {
-    const modal = document.getElementById('myModal');
-    modal.style.display = 'none';
+    document.getElementById("myModal").style.display = "none";
+
+    // Show the footer again when modal closes
+    document.querySelector("footer").style.display = "block";
 }
 
-function toggleSidebar() {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('hidden'); // Toggle the 'hidden' class
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slideImages.length;
+    document.getElementById("modalImage").src = slideImages[currentSlide];
+    updateSlideControls(); // Update image counter
 }
+
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slideImages.length) % slideImages.length;
+    document.getElementById("modalImage").src = slideImages[currentSlide];
+    updateSlideControls(); // Update image counter
+}
+
+function updateSlideControls() {
+    const nextButton = document.getElementById("nextButton");
+    const prevButton = document.getElementById("prevButton");
+    const imageCounter = document.getElementById("imageCounter");
+
+    // Show buttons if there are multiple images
+    if (slideImages.length > 1) {
+        nextButton.style.display = "block";
+        prevButton.style.display = "block";
+    } else {
+        nextButton.style.display = "none"; // Hide if only one image
+        prevButton.style.display = "none"; // Hide if only one image
+    }
+
+    // Update the image counter text
+    imageCounter.innerText = `${currentSlide + 1} / ${slideImages.length}`; // Display current image number
+}
+
+// Close modal if clicking outside the modal content
+const modal = document.getElementById("myModal");
+const modalContentWrapper = document.querySelector(".modal-content-wrapper");
+modal.addEventListener("click", (event) => {
+    if (!modalContentWrapper.contains(event.target)) {
+        closeModal();
+    }
+});
